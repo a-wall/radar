@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Host.Desktop.Support.View.SystemMenuIconView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="CogsSpinner">
+    <UserControl.Resources>
+        <Storyboard x:Key="Spinner" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BottomCog" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-10" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="170" />
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="349" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="TopCog" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="30" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="-210" />
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-389" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Geometry x:Key="CogGeometry">
+            F 1 M 169.918,62.205 C 169.482,61.634 168.913,61.294 168.207,61.186 L 153.298,58.905 C 152.483,56.298 151.369,53.637 149.957,50.921 150.934,49.563 152.4,47.649 154.355,45.177 156.31,42.705 157.695,40.9 158.51,39.759 158.945,39.161 159.161,38.537 159.161,37.885 159.161,37.125 158.972,36.528 158.591,36.093 156.636,33.322 152.155,28.706 145.148,22.242 144.498,21.699 143.818,21.428 143.113,21.428 142.298,21.428 141.646,21.672 141.157,22.16 L 129.589,30.878 C 127.361,29.737 124.917,28.732 122.256,27.863 L 119.975,12.873 C 119.921,12.167 119.608,11.583 119.038,11.121 118.467,10.659 117.803,10.429 117.041,10.429 L 98.955,10.429 C 97.38,10.429 96.402,11.189 96.022,12.71 95.316,15.425 94.528,20.476 93.659,27.863 91.106,28.679 88.635,29.711 86.245,30.96 L 75.002,22.242 C 74.296,21.699 73.59,21.428 72.884,21.428 71.689,21.428 69.123,23.369 65.185,27.253 61.247,31.137 58.573,34.056 57.16,36.011 56.671,36.717 56.427,37.342 56.427,37.885 56.427,38.537 56.698,39.189 57.241,39.84 60.88,44.24 63.786,47.987 65.959,51.084 64.601,53.582 63.542,56.081 62.782,58.579 L 47.628,60.86 C 47.031,60.969 46.515,61.322 46.08,61.92 45.645,62.517 45.428,63.142 45.428,63.793 L 45.428,81.88 C 45.428,82.587 45.645,83.224 46.08,83.794 46.515,84.365 47.085,84.706 47.791,84.814 L 62.701,87.014 C 63.461,89.675 64.574,92.363 66.041,95.078 65.064,96.436 63.597,98.35 61.642,100.822 59.687,103.294 58.301,105.099 57.487,106.24 57.052,106.839 56.835,107.462 56.835,108.114 56.835,108.82 57.025,109.444 57.405,109.987 59.523,112.921 64.004,117.484 70.848,123.675 71.446,124.273 72.125,124.571 72.885,124.571 73.7,124.571 74.379,124.327 74.922,123.839 L 86.41,115.12 C 88.638,116.261 91.082,117.266 93.743,118.136 L 96.024,133.126 C 96.079,133.832 96.391,134.416 96.961,134.878 97.531,135.341 98.197,135.57 98.957,135.57 L 117.044,135.57 C 118.621,135.57 119.598,134.81 119.979,133.289 120.684,130.573 121.471,125.523 122.34,118.136 124.893,117.321 127.365,116.288 129.754,115.039 L 140.998,123.839 C 141.758,124.327 142.465,124.571 143.116,124.571 144.31,124.571 146.863,122.644 150.773,118.787 154.685,114.931 157.373,111.997 158.838,109.987 159.327,109.444 159.572,108.82 159.572,108.114 159.572,107.408 159.301,106.727 158.757,106.077 154.847,101.297 151.941,97.55 150.039,94.834 151.125,92.824 152.185,90.353 153.217,87.42 L 168.289,85.14 C 168.94,85.031 169.485,84.677 169.919,84.079 170.353,83.481 170.569,82.856 170.569,82.205 L 170.569,64.119 C 170.57,63.413 170.354,62.776 169.918,62.205 Z M 122.747,87.746 C 118.674,91.82 113.758,93.857 108,93.857 102.242,93.857 97.327,91.82 93.253,87.746 89.18,83.673 87.143,78.758 87.143,73 87.143,67.242 89.179,62.327 93.253,58.253 97.327,54.18 102.243,52.143 108,52.143 113.758,52.143 118.674,54.18 122.747,58.253 126.82,62.327 128.857,67.242 128.857,73 128.857,78.758 126.82,83.673 122.747,87.746 Z
+        </Geometry>
+        <Style x:Key="Cog" TargetType="{x:Type Path}">
+            <Setter Property="Fill" Value="{Binding Foreground, ElementName=CogsSpinner}" />
+            <Setter Property="Width" Value="10" />
+            <Setter Property="Height" Value="10" />
+            <Setter Property="UseLayoutRounding" Value="false" />
+            <Setter Property="Stretch" Value="Fill" />
+            <Setter Property="Data" Value="{StaticResource CogGeometry}" />
+        </Style>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.MouseEnter">
+            <BeginStoryboard Name="MouseEnterStoryboard" Storyboard="{StaticResource Spinner}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.MouseLeave">
+            <StopStoryboard BeginStoryboardName="MouseEnterStoryboard" />
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Border Background="Transparent" FlowDirection="LeftToRight">
+        <Canvas Height="14" Width="17">
+            <Path x:Name="TopCog" Style="{StaticResource Cog}" Height="7" Width="7" Canvas.Left="1" Canvas.Top="1" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="30"/>
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path x:Name="BottomCog" Style="{StaticResource Cog}" Height="8" Width="8" Canvas.Left="8" Canvas.Top="5.5" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="-10"/>
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </Canvas>
+    </Border>
+</UserControl>

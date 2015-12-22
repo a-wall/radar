@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Host.Desktop.Dialog.Views.ConfirmationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Host.Desktop.Dialog.Views"
+             xmlns:converters="clr-namespace:Host.Desktop.Converters"
+             xmlns:dialog="clr-namespace:Host.Desktop.Dialog">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:EnumToVisibilityConverter x:Key="EnumToVisibilityConverter"/>
+        <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter"/>
+    </UserControl.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Bottom">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Yes" IsDefault="{Binding Result, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static dialog:ConfirmationResult.Yes}}" Command="{Binding CloseCommand}" CommandParameter="{x:Static dialog:ConfirmationResult.Yes}" Visibility="{Binding YesButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <Button Content="No" IsDefault="{Binding Result, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static dialog:ConfirmationResult.No}}" Command="{Binding CloseCommand}" CommandParameter="{x:Static dialog:ConfirmationResult.No}" Visibility="{Binding NoButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <Button Content="OK" IsDefault="{Binding Result, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static dialog:ConfirmationResult.Ok}}" Command="{Binding CloseCommand}" CommandParameter="{x:Static dialog:ConfirmationResult.Ok}" Visibility="{Binding OkButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <Button Content="Cancel" IsDefault="{Binding Result, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static dialog:ConfirmationResult.Cancel}}" Command="{Binding CloseCommand}" CommandParameter="{x:Static dialog:ConfirmationResult.Cancel}" Visibility="{Binding CancelButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            </StackPanel>
+        </Border>
+        <Grid MinWidth="300" MaxWidth="700" MinHeight="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Canvas Margin="10,0,0,0" Grid.Column="0" Height="30" Width="30" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding Severity, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static dialog:ConfirmationSeverity.Warning}}">
+                <Path Height="30" Width="30" Stretch="Fill"></Path>
+            </Canvas>
+            <TextBlock Grid.Column="1" Text="{Binding Message}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        </Grid>
+    </DockPanel>
+</UserControl>

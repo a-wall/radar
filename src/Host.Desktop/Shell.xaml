@@ -1,0 +1,26 @@
+﻿<m:MetroWindow x:Class="Host.Desktop.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:m="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:r="clr-namespace:Host.Desktop"
+        Title="MainWindow" Height="350" Width="525" Background="{DynamicResource FlatBackgroundNormal}">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Grid.ColumnSpan="2" prism:RegionManager.RegionName="{x:Static r:RegionNames.AlertBar}"/>
+            <Menu Grid.Column="0" prism:RegionManager.RegionName="{x:Static r:RegionNames.MenuBar}" />
+            <Menu Grid.Column="1" prism:RegionManager.RegionName="{x:Static r:RegionNames.SystemMenuBar}" FlowDirection="RightToLeft"/>
+        </Grid>
+        <StatusBar DockPanel.Dock="Bottom" prism:RegionManager.RegionName="{x:Static r:RegionNames.StatusBar}"/>
+        <!--<ItemsControl prism:RegionManager.RegionName="{x:Static r:RegionNames.Main}"/>-->
+        <xcad:DockingManager>
+
+        </xcad:DockingManager>
+    </DockPanel>
+</m:MetroWindow>
